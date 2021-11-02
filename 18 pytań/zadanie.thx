@@ -1,0 +1,89 @@
+//12
+12. Pokaż w jaki sposób z tablicy tablic postaci href = http://google.com, name = Google,href = http://yahoo.com, name = Yahoo można utworzyć nawigację.
+
+
+13. Jakiej funkcji należy użyć żeby połączyć sięz bazą danych (mysql). Wypisz wszystkie parametry, które będądo takiego połączenia potrzebne. A co zwraca ww. funkcja?
+
+Aby połączyć się z serwerem baz danych potrzebujemy specjalnego programu tzw. klienta lub języka skryptowego (umieszczanego na serwerach WWW), który posiada wbudowaną obsługę baz danych.
+W tym celu można użyć programu klienckiego takiego jak MySQL-Front, lub oprogramowanie dostarczane łącznie z pakietem MySQL.
+Aby połączyć się z bazą danych (mysql) należy użyć funkcji języka PHP, komendą, $db = mysql_connect ("adres", "użytkownik", "hasło");
+Następnie po prawidłowym podłączeniu do serwera MySQL należy wybrać bazę, na której będziesz pracować: mysql_select_db ("baza");
+Po poprawnym połączeniu się z bazą danych można przystąpić do wydawania poleceń języka SQL. Funkcję PHP wysyłającą zapytanie SQL do serwera wywołuje się następująco: mysql_query ("zapytanie_SQL");
+Po zakończonej pracy z bazą danych należy użyć funkcji: mysql_close ($db);
+
+14. Jak możemy sprawdzić czy połączenie z bazą danych się udało?
+
+Połączenie z bazą danych można sprawdzić w programie Management Studio. Jeśli chcemy sprawdzić połączenie innym sposobem
+to musimy utworzyć pusty plik tekstowy. Następnie zmieniamy jego rozszerzenie pliku z TXT na UDL.
+Plik UDL to plik konfiguracyjny połączenia do bazy za pomocą OLE DB, który wskazuje na zewnętrzną tabelę bazy danych.
+Gdy już mamy gotowy plik, otwieramy go i włącza nam się okienko, w które wpisujemy nazwę naszego serwera. Wybieramy też sposób autentykacji.
+Jeżeli możemy wybrać z listy bazę danych to już świadczy o tym że połączenie się udało, aczkolwiek mozemy też kliknąć na przycisk „Testuj połączenie”.
+
+15. napisz kwałek kodu, który przy otwartym połączeniu z bazą pobierze dane z dowolnej tabeli zawierającej kolumny id oraz name i je wyświetli w formie listy
+
+
+16. Co to jest query param w zapytaniu HTTP.
+
+QueryParam - wiąże wartości parametru zapytania HTTP z parametrem metody zasobu, polem klasy zasobów lub właściwością komponentu bean klasy zasobów.
+
+17. W jaki sposób możemy pobrać query param w PHP i go wyświetlić?
+
+<?php
+// Połącz się z bazą danych o nazwie 
+$dbconn = pg_connect("dbname=mary");
+
+// Znajdź wszystkie sklepy o nazwie Joe's Widgets. Pamiętaj, że nie jest konieczne
+$result = pg_query_params($dbconn, 'SELECT * FROM shops WHERE name = $1', array("Joe's Widgets"));
+
+// Porównaj z samym użyciem pg_query
+$str = pg_escape_string("Joe's Widgets");
+$result = pg_query($dbconn, "SELECT * FROM shops WHERE name = '{$str}'");
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//18
+
+<form method="post" action="index.php">
+    <label for="username">Nazwa użytkownika:</label>
+    <input type="text" id="username" name="username" class="inpUsername">
+    <label for="password">Hasło:</label>
+    <input type="password" id="password" name="password">
+        <div id="lower">
+            <input type="checkbox"><label class="check" for="checkbox">Zapamiętaj</label>
+            <input type="submit" name="wyslano" value="Logowanie" class="inpLogowanie">
+            <a href="rejestracja.php" class="inpRejestracja">Rejestracja</a>
+        </div>
+</form>
+ 
+<?php
+<form method="post" action="logowanie.php">
+    <label for="username">Nazwa użytkownika:</label>
+    <input type="text" id="username" name="username" class="inpUsername">
+    <label for="password">Hasło:</label>
+    <input type="password" id="password" name="password">
+        <div id="lower">
+            <input type="checkbox"><label class="check" for="checkbox">Zapamiętaj</label>
+            <input type="submit" name="wyslano" value="Logowanie" class="inpLogowanie">
+            <a href="rejestracja.php" class="inpRejestracja">Rejestracja</a>
+        </div>
+</form>
+
+
+?>
+
+
